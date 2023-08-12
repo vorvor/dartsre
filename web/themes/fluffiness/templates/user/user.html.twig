@@ -1,0 +1,73 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+<article{{ attributes.addClass('profile') }}>
+
+  <h1>Hello {{ user.displayname }}!</h1>
+
+  <div id="dashboard">
+
+  <div id="calendar">
+  {% for month in calendar %}
+  <div class="month">
+    {% for week in month %}
+    <div class="week">
+      {% for date, day in week %}
+        {% if day == -1 %}
+        <div class="day empty"></div>
+        {% elseif day < 6 %}
+        <div class="day level-{{day}}" title="{{ date }}"></div>
+        {% else %}
+        <div class="day level-max" title="{{ date }}"></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  </div>
+
+  <h2>Training</h2>
+  <ul id="trainings">
+    {% for gametype, game in games %}
+    <li class="{{ game.state }}">
+      <div class="gametype">
+        <a href="{{ game.href }}">{{ gametype }}</a>
+      </div>
+      <div>
+        {% for value in game.pointer %}
+        <div class="pointer">{{ value }}</div>
+        {% endfor %}
+      </div>
+      <div class="stats">
+        <a href="/stat/{{ gametype }}">stats</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Match</h2>
+  <ul>
+    <li><a href="/darts/game">X01 két játékos</a></li>
+  </ul>
+  </div>
+
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</article>
