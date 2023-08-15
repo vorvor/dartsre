@@ -27,13 +27,20 @@
   <div class="month">
     {% for week in month %}
     <div class="week">
+
       {% for date, day in week %}
+
+        {% set todayclass = '' %}
+        {% if date == today %}
+          {% set todayclass = 'today' %}
+        {% endif %}
+
         {% if day == -1 %}
-        <div class="day empty"></div>
+        <div class="day empty {{todayclass}}"></div>
         {% elseif day < 6 %}
-        <div class="day level-{{day}}" title="{{ date }}"></div>
+        <div class="day level-{{day}}  {{todayclass}}" title="{{ date }}"></div>
         {% else %}
-        <div class="day level-max" title="{{ date }}"></div>
+        <div class="day level-max {{ todayclass }}" title="{{ date }}"></div>
         {% endif %}
       {% endfor %}
     </div>
@@ -63,7 +70,10 @@
 
   <h2>Match</h2>
   <ul>
-    <li><a href="/darts/game">X01 két játékos</a></li>
+    <li>
+      <a href="/darts/game">X01 két játékos</a>
+      <a href="/stat/501do">stats</a>
+    </li>
   </ul>
   </div>
 

@@ -1,0 +1,18 @@
+/*!
+ * Bootstrap Utilities v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+// Configuration
+@import "src/scss/__bootstrap/functions";
+@import "src/scss/__bootstrap/variables";
+@import "src/scss/__bootstrap/mixins";
+@import "src/scss/__bootstrap/utilities";
+
+// Helpers
+@import "src/scss/__bootstrap/helpers";
+
+// Utilities
+@import "src/scss/__bootstrap/utilities/api";

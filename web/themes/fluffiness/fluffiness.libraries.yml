@@ -46,7 +46,7 @@ base:
         weight: -10
       css/components/ui-dialog.css:
         weight: -10
-      css/components/fluffiness.css:
+      fluffiness.css:
         weight: 0
 dialog:
   version: VERSION

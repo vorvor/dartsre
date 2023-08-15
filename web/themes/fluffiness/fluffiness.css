@@ -1,0 +1,31 @@
+body {
+	font-family: Arial;
+}
+
+.layout-container {
+	padding:  24px;
+}
+
+#notice {
+	background-color: red;
+	padding: 4px 10px;
+	border-radius: 100px;
+	color: #fff;
+	text-align: center;
+}
+
+#notice a {
+	color:  #fff;
+}
+
+.views-field-field-video {
+	float:  left;
+}
+
+.views-field-title a {
+	font-size: 3em;
+	font-weight: bold;
+	margin-left:  0.5em;
+	color:  #333;
+	text-decoration: none;
+}

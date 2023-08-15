@@ -22,23 +22,25 @@ function fluffiness_preprocess_image_widget(array &$variables) {
 
 function fluffiness_preprocess_user(&$variables) {
 
+  dart_match_stat(52);
+
   $variables['#attached']['library'][] = 'darts/user'; 
 
   $games = [
     'where training' => [
-      'href' => '/darts/where',
+      'href' => '/training/where',
       'state' => 'undone',
     ],
     'double training' => [
-      'href' => '/darts/double',
+      'href' => '/training/double',
       'state' => 'undone',
     ],
     'bull training' => [
-      'href' => '/darts/bull',
+      'href' => '/training/bull',
       'state' => 'undone',
     ],
     'around training' => [
-      'href' => '/darts/around',
+      'href' => '/training/around',
       'state' => 'undone',
     ],
   ];
@@ -49,7 +51,8 @@ function fluffiness_preprocess_user(&$variables) {
     $query = $database->select('darts_allgame', 'd');
     $query
     ->fields('d')
-    ->condition('d.game_type', $game_type);
+    ->condition('d.game_type', $game_type)
+    ->orderBy('id', 'DESC');
 
     $results = $query->execute()->fetchAll();
 
@@ -60,7 +63,10 @@ function fluffiness_preprocess_user(&$variables) {
       // Training accomplished today.
       if ($date == $today) {
         $game_data = unserialize($row->score);
-        $games[$game_type]['pointer'][] = floor($game_data['pointer'] * 100) / 100;
+        
+        if (!isset($games[$game_type]['pointer']) || count($games[$game_type]['pointer']) < 2) {
+          $games[$game_type]['pointer'][] = floor($game_data['pointer'] * 100) / 100;
+        }
         $games[$game_type]['state'] = 'done';
       }
     }
@@ -140,5 +146,9 @@ function fluffiness_preprocess_user(&$variables) {
 
 
   $variables['calendar'] = $year;
+  $variables['today'] = date('Y-m-d');
+}
 
+function fluffiness_preprocess_page(&$variables) {
+  $variables['training_notice'] = dart_training_notice();
 }

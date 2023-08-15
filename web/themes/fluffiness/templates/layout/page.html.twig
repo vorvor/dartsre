@@ -57,6 +57,12 @@
 
   {{ page.help }}
 
+  {% if training_notice is not empty %}
+  <div id="notice">
+    {{ training_notice|raw }}
+  </div>
+  {% endif %}
+
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 

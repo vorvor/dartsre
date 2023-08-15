@@ -1,0 +1,65 @@
+{
+  "name": "appf",
+  "version": "1.0.0",
+  "description": "Drupal 8 theme template",
+  "main": "index.js",
+  "scripts": {
+    "watch": "yarn install && gulp watch",
+    "build": "yarn install && gulp build",
+    "tasks": "gulp --tasks",
+    "sass": "yarn install && gulp sass",
+    "sass:lint": "yarn install && gulp sass:lint",
+    "sass:lint:fix": "yarn install && gulp sass:lint:fix",
+    "js": "yarn install && gulp js",
+    "js:lint": "yarn install && gulp js:lint",
+    "js:lint:fix": "yarn install && gulp js:lint:fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nimajnebp/legendary-disco.git"
+  },
+  "keywords": [
+    "drupal",
+    "theme",
+    "template",
+    "classy",
+    "bootstrap",
+    "turbo-potato",
+    "gulp"
+  ],
+  "author": "nimajnebp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nimajnebp/legendary-disco/issues"
+  },
+  "homepage": "https://github.com/nimajnebp/legendary-disco#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "turbo-potato": "^1.0.7"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "globals": {
+      "Drupal": true,
+      "drupalSettings": true,
+      "jQuery": true
+    },
+    "rules": {
+      "no-param-reassign": [
+        "error",
+        {
+          "props": true,
+          "ignorePropertyModificationsFor": [
+            "Drupal"
+          ]
+        }
+      ]
+    }
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "stylelint": {
+    "extends": "stylelint-config-twbs-bootstrap/scss"
+  }
+}

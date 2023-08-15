@@ -1,0 +1,24 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      dist/css/main.min.css: {}
+  js:
+    dist/js/main.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+
+bootstrap:
+  version: 5.1.3
+  js:
+    libraries/bootstrap/dist/js/bootstrap.bundle.min.js: {}
+  dependencies:
+    - core/jquery
+
+#fonts:
+#  version: 1.0.0
+#  css:
+#    theme:
+#      '//fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap': { type: external, minified: true }

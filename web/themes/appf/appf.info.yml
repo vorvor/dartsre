@@ -1,0 +1,21 @@
+core_version_requirement: '^10.0'
+type: 'theme'
+
+name: 'Kpintra - Frontend Theme'
+description: 'Frontend theme'
+base theme: 'gin'
+
+# https://www.drupal.org/docs/theming-drupal/sub-theme-inheritance
+# https://www.drupal.org/node/2469113#default_regions
+#regions:
+
+libraries:
+  - 'appf/global-styling'
+  - 'appf/bootstrap'
+
+libraries-override:
+  core/normalize: false
+  classy/base: false
+
+ckeditor_stylesheets:
+  - 'dist/css/_drupal/ck-editor/ck-editor.min.css'
